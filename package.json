@@ -1,0 +1,15 @@
+{
+  "name": "prog-enhance",
+  "version": "0.0.0",
+  "description": "A fresh new Architect project!",
+  "scripts": {
+    "start": "npx sandbox"
+  },
+  "devDependencies": {
+    "@architect/architect": "^8.5.9"
+  },
+  "dependencies": {
+    "@architect/functions": "^3.13.11",
+    "@begin/data": "^2.0.1"
+  }
+}
