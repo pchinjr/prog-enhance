@@ -7,9 +7,10 @@ function form(prayer) {
   return `
   <h2> Daily Prayers </h2>
   <form action="/backend" method="post">
-  <input type="text" name="content" value=${JSON.stringify(prayer[0].content) || ''}>
+  <input type="text" name="content">
   <button>Save</button>
   </form>
+  <h2> ${prayer} </h2>
   `
 }
 
@@ -18,6 +19,8 @@ async function route(req) {
   let prayer = await data.get({
     table: 'prayers-table'
   })
+
+  let content = prayer && prayer.length && prayer[0].content || ''
 
   return {
     html: `
@@ -34,7 +37,7 @@ async function route(req) {
 <body>
 <h1>Praise Cage</h1>
 
-${form(prayer)}
+${form(content)}
 
 <script src=/_static/index.js type=module></script>
 
